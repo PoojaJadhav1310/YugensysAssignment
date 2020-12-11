@@ -1,0 +1,26 @@
+
+
+
+<div class="container">
+  <div>
+    <div>
+      <label>Enter Info:</label>
+      <input type="text" placeholder="enter info" name = "infotxt" [(ngModel)]="infotxt" (change)="onChangeTextfield(infotxt)"  > 
+    </div>
+    <div>
+      <label>select fruit</label>
+      <select  [(ngModel)]="selectedfruit" aria-placeholder="Please choose..">
+        <option value="" disabled hidden selected>Please Choose </option>
+        <option *ngIf="suggestions.length!=0">Suggested:</option>
+        <option *ngFor="let suggest of suggestions" [ngValue]="suggest">{{suggest.bestAnswer}}</option>
+        <option *ngIf="suggestions.length!=0">Other Options:</option>
+        <option *ngFor="let fruit of Fruits" [ngValue]="fruit">{{fruit}}</option>
+     </select>
+
+    </div>
+
+    <div>
+      <button type="submit" (click)="changeFruit(selectedfruit)"> Submit</button>
+    </div>
+  </div>
+</div>
